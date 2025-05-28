@@ -1,0 +1,66 @@
+/* src/styles/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.glassmorphism {
+  @apply bg-white/70 dark:bg-gray-800/70 backdrop-blur-lg border border-white/20 dark:border-gray-700/20;
+}
+
+.neumorphism-light {
+  @apply bg-gray-100 shadow-[5px_5px_15px_rgba(0,0,0,0.1),-5px_-5px_15px_rgba(255,255,255,0.7)];
+}
+
+.neumorphism-dark {
+  @apply bg-gray-800 shadow-[5px_5px_15px_rgba(0,0,0,0.3),-5px_-5px_15px_rgba(255,255,255,0.05)];
+}
+
+/* Parallax effect */
+.parallax {
+  @apply relative overflow-hidden;
+}
+
+.parallax-bg {
+  @apply absolute inset-0 z-0 transform scale-110;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Swiper custom styles */
+.swiper-pagination-bullet {
+  @apply bg-gray-400 dark:bg-gray-600 opacity-70;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-primary-dark dark:bg-primary-light opacity-100;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-primary-dark dark:text-primary-light;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}

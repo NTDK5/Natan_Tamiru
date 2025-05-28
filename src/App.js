@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
+import { AnimatePresence } from 'framer-motion';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import BackToTop from './components/BacktoTop';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+import './styles/index.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Router>
+        <div className="min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-300">
+          <Navbar />
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </AnimatePresence>
+          <Footer />
+          <BackToTop />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 
